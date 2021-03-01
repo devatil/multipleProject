@@ -6,10 +6,17 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './secure/menu/menu.component';
 import { SecureModule } from './secure/secure.module';
 import { PublicModule } from './public/public.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SecureModule, PublicModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SecureModule,
+    PublicModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
