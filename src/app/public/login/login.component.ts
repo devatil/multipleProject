@@ -1,16 +1,20 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -22,8 +26,9 @@ export class LoginComponent implements OnInit {
   submit(): void {
     const data = this.form.getRawValue();
 
-    this.authService.login(data).subscribe((res) => {
-      console.log(res);
+    this.authService.login(data).subscribe((res: any) => {
+      localStorage.setItem('token', res.token);
+      this.router.navigate(['/dashboard']);
     });
   }
 }
