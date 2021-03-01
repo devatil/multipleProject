@@ -4,8 +4,21 @@ import { LoginComponent } from './public/login/login.component';
 import { SecureComponent } from './secure/secure.component';
 import { RegisterComponent } from './public/register/register.component';
 import { PublicComponent } from './public/public.component';
+import { UsersComponent } from './secure/users/users.component';
+import { DashboardComponent } from './secure/dashboard/dashboard.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: SecureComponent,
+
+    children: [
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: 'users', component: UsersComponent },
+      { path: 'dashboard', component: DashboardComponent },
+    ],
+  },
+
   {
     path: '',
     component: PublicComponent,
@@ -14,8 +27,6 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
     ],
   },
-
-  { path: 'dashboard', component: SecureComponent },
 ];
 
 @NgModule({
