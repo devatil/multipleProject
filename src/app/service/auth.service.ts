@@ -17,12 +17,13 @@ export class AuthService {
   }
 
   user() {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    });
+    return this.http.get(`${environment.api}/user`);
+  }
 
-    return this.http.get(`${environment.api}/user`, {
-      headers: headers,
-    });
+  updateUser(data) {
+    return this.http.put(`${environment.api}/users/info`, data);
+  }
+  updatePassword(data) {
+    return this.http.put(`${environment.api}/users/password`, data);
   }
 }

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../../interfaces/user';
+import { Router } from '@angular/router';
+import { Auth } from '../../classes/auth';
 
 @Component({
   selector: 'app-nav',
@@ -7,10 +9,18 @@ import { User } from '../../interfaces/user';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-  @Input()
   user: User = null;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    Auth.userEmitter.subscribe((user: User) => {
+      this.user = user;
+    });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 }

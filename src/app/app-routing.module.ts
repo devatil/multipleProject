@@ -6,6 +6,7 @@ import { RegisterComponent } from './public/register/register.component';
 import { PublicComponent } from './public/public.component';
 import { UsersComponent } from './secure/users/users.component';
 import { DashboardComponent } from './secure/dashboard/dashboard.component';
+import { ProfileComponent } from './secure/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'users', component: UsersComponent },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'profile', component: ProfileComponent },
     ],
   },
 

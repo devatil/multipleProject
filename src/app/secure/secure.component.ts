@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
+import { Auth } from '../classes/auth';
 
 @Component({
   selector: 'app-secure',
@@ -16,7 +17,7 @@ export class SecureComponent implements OnInit {
     this.authService.user().subscribe(
       (res: any) => {
         this.user = res.data;
-        console.log(res.data);
+        Auth.user = this.user;
       },
       (err) => {
         this.router.navigate(['/login']);

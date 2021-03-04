@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { SecureComponent } from './secure.component';
 import { NavComponent } from './nav/nav.component';
 import { MenuComponent } from './menu/menu.component';
-import { PublicModule } from '../public/public.module';
 import { UsersComponent } from './users/users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
     MenuComponent,
     UsersComponent,
     DashboardComponent,
+    ProfileComponent,
   ],
   exports: [
     SecureComponent,
@@ -23,6 +25,6 @@ import { RouterModule } from '@angular/router';
     DashboardComponent,
     UsersComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
 })
 export class SecureModule {}
