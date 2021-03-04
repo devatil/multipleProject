@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Auth } from '../../classes/auth';
-import { AuthService } from '../../service/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { User } from '../../interfaces/user';
 
 @Component({
