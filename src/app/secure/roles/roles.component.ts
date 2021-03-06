@@ -14,6 +14,10 @@ export class RolesComponent implements OnInit {
   constructor(private roleService: RoleService) {}
 
   ngOnInit(): void {
+    this.refresh();
+  }
+
+  refresh() {
     this.roleService.all().subscribe((res: Response) => {
       this.roles = res.data;
     });
