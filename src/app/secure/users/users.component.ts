@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
+import { Response } from '../../interfaces/response';
 
 @Component({
   selector: 'app-users',
@@ -20,7 +21,7 @@ export class UsersComponent implements OnInit {
   }
 
   refresh() {
-    this.userService.all(this.currentPage).subscribe((res: any) => {
+    this.userService.all(this.currentPage).subscribe((res: Response) => {
       this.users = res.data;
       this.lastPage = res.meta.last_page;
     });
@@ -36,5 +37,11 @@ export class UsersComponent implements OnInit {
     if (this.currentPage === this.lastPage) return;
     this.currentPage++;
     this.refresh();
+  }
+
+  delete(id: number) {
+    this.userService.delete(id).subscribe((res) => {
+      this.users = this.users.filter((el) => el.id !== id);
+    });
   }
 }
