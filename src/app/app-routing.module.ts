@@ -11,6 +11,8 @@ import { UsersCreateComponent } from './secure/users/users-create/users-create.c
 import { UserEditComponent } from './secure/users/user-edit/user-edit.component';
 import { RolesComponent } from './secure/roles/roles.component';
 import { CreateRoleComponent } from './secure/roles/create-role/create-role.component';
+import { RoleEditComponent } from './secure/roles/role-edit/role-edit.component';
+import { ProductsComponent } from './secure/products/products.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,8 @@ const routes: Routes = [
       { path: 'users/:id/edit', component: UserEditComponent },
       { path: 'roles', component: RolesComponent },
       { path: 'roles/create', component: CreateRoleComponent },
+      { path: 'roles/:id/edit', component: RoleEditComponent },
+      { path: 'products', component: ProductsComponent },
     ],
   },
 

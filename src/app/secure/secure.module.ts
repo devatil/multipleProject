@@ -13,6 +13,8 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { RolesComponent } from './roles/roles.component';
 import { CreateRoleComponent } from './roles/create-role/create-role.component';
 import { RoleEditComponent } from './roles/role-edit/role-edit.component';
+import { ProductsComponent } from './products/products.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { RoleEditComponent } from './roles/role-edit/role-edit.component';
     RolesComponent,
     CreateRoleComponent,
     RoleEditComponent,
+    ProductsComponent,
+    PaginatorComponent,
   ],
   exports: [
     SecureComponent,

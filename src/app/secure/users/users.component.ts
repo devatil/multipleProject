@@ -10,33 +10,19 @@ import { Response } from '../../interfaces/response';
 })
 export class UsersComponent implements OnInit {
   users: User[];
-
-  currentPage = 1;
   lastPage: number;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.refresh();
+    this.referesh();
   }
 
-  refresh() {
-    this.userService.all(this.currentPage).subscribe((res: Response) => {
+  referesh(currentPage = 1) {
+    this.userService.all(currentPage).subscribe((res: Response) => {
       this.users = res.data;
       this.lastPage = res.meta.last_page;
     });
-  }
-
-  prev() {
-    if (this.currentPage === 1) return;
-    this.currentPage--;
-    this.refresh();
-  }
-
-  next() {
-    if (this.currentPage === this.lastPage) return;
-    this.currentPage++;
-    this.refresh();
   }
 
   delete(id: number) {
